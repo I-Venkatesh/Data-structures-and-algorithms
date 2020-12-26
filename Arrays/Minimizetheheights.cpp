@@ -12,31 +12,57 @@ int main() {
         {
             cin>>arr[i];
         }
-        sort(arr,arr+n);
-        int small=arr[0]+k;
-        int big=arr[n-1]-k;
-        if(small>big)
+        // code here
+        vector<pair<int,int>> all;
+        for(int i=0;i<n;i++)
         {
-            swap(big,small);
-        }
-        int ans=big-small;
-        for(int i=1;i<n-1;i++)
-        {
-            int add=arr[i]+k;
-            int subtract=arr[i]-k;
-            if(add<=big||subtract>=small)
+            if(arr[i]-k>=0)
             {
-                continue;
+                all.push_back({arr[i]-k,i});
             }
-            if(add-small<big-subtract)
+            all.push_back({arr[i]+k,i});
+        }
+        sort(all.begin(),all.end());
+        int left=0;
+        int right=0;
+        int ele=0;
+        int visited[n];
+        memset(visited,0,sizeof(visited));
+        while(ele<n&&right<all.size())
+        {
+            if(visited[all[right].second]==0)
             {
-                big=add;
+                ele++;
+            }
+            visited[all[right].second]++;
+            right++;
+        }
+        int ans=all[right-1].first-all[left].first;
+        while(right<all.size())
+        {
+            if(visited[all[left].second]==1)
+            {
+                ele--;
+            }
+            visited[all[left].second]--;
+            left++;
+            while(ele<n&&right<all.size())
+            {
+                if(visited[all[right].second]==0)
+                {
+                    ele++;
+                }
+                visited[all[right].second]++;
+                right++;
+            }
+            if(ele==n)
+            {
+                ans=min(ans,all[right-1].first-all[left].first);
             }
             else
             {
-                small=subtract;
+                break;
             }
-            ans=min(ans,big-small);
         }
         cout<<ans<<"\n";
 	}
