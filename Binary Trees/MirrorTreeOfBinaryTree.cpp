@@ -54,25 +54,24 @@ Node* buildTree(string str)
     }
     return root;
 }
-int dfs(Node* root,int* maxi)
+void dfs(Node* root)
 {
-    if(root==NULL)
+    if(root->left==NULL)
     {
-        return 0;
+        return;
     }
-    int l=dfs(root->left,maxi);
-    int r=dfs(root->right,maxi);
-    if(1+l+r>*maxi)
-    {
-        *maxi=1+l+r;
-    }
-    return 1+max(l,r);
+    dfs(root->left);
+    dfs(root->right);
+    swap(root->left,root->right);
 }
-int diameter(Node* root) {
-    int maxi=0;
-    dfs(root,&maxi);
-    return maxi;
-}
+void inorder(Node* root) 
+{ 
+    if (root == NULL) 
+        return; 
+    inorder(root->left); 
+    printf("%d ", root->data); 
+    inorder(root->right); 
+} 
 int main()
 {
     int test;
@@ -82,6 +81,10 @@ int main()
         string s;
         getline(cin,s);
         Node* root=buildTree(s);
-        cout<<diameter(root);
+        inorder(root);
+        dfs(root);
+        cout<<"\n";
+        inorder(root);
+        
     }
 }
