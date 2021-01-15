@@ -133,5 +133,6 @@ int main()
     }
     Node* root=buildTree(n);
     int level=0,maxLevel=0,s=0,maxSum=0;
-    cout<<sum(root,level,&maxLevel,s,&maxSum);
+    sum(root,level,&maxLevel,s,&maxSum);
+    cout<<maxSum<<"\n";
 }
