@@ -15,7 +15,8 @@ int main()
     int visited[100005];
     memset(visited, 0, sizeof(visited));
     stack<int> st;
-    st.push(2);
+    st.push(0);
+    bool ok=true;
     while (!st.empty())
     {
         int x = st.top();
@@ -24,6 +25,11 @@ int main()
             ans.push_back(x);
             visited[x] = 1;
         }
+        else{
+            ok=false;
+            cout<<"Loop Found"<<"\n";
+            break;
+        }
         st.pop();
         for (int i = 0; i < graph[x].size(); i++)
         {
@@ -31,10 +37,16 @@ int main()
             {
                 st.push(graph[x][i]);
             }
+            else{
+                ok=false;
+            cout<<"Loop Found"<<"\n";
+            break;
+            }
         }
     }
-    for(auto i:ans)
+    if(ok)
     {
-        cout<<i<<" ";
+        cout<<"No Loop found"<<"\n";
     }
+    
 }
