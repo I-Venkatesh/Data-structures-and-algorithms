@@ -22,6 +22,7 @@ void topologicalSort(int n,int m)
     while(!q.empty())
     {
         int curr=q.front();
+        // cout<<curr<<"\n";
         q.pop();
         for(auto i:graph[curr])
         {
@@ -35,11 +36,40 @@ void topologicalSort(int n,int m)
                 q.push(i);
             }
         }
-        
     }
     for(int i=0;i<=n;i++)
     {
         cout<<job[i]<<" ";
+    }
+}
+int dfs(int i,int visited[],stack<int> &st)
+{
+    visited[i]=true;
+    for(auto j:graph[i])
+    {
+        if(!visited[j])
+        {
+            dfs(j,visited,st);
+        }
+    }
+    st.push(i);
+}
+void topologicalUsingStack(int n,int m)
+{
+    stack<int> st;
+    int visited[100005];
+    memset(visited,0,sizeof(visited));
+    for(int i=1;i<=n;i++)
+    {
+        if(!visited[i])
+        {
+            dfs(i,visited, st);
+        }
+    }
+    while(!st.empty())
+    {
+        cout<<st.top();
+        st.pop();
     }
 }
 int main()
@@ -58,5 +88,6 @@ int main()
     addEdge(6, 7);
     addEdge(7, 8);
     addEdge(8, 10);
+    topologicalSort(n,m);
     topologicalSort(n,m);
 }
