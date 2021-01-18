@@ -14,7 +14,7 @@ void DFS(int u,vector<int>& disc,vector<int>& low,vector<int>& parent,vector<pai
         if(disc[v]==-1)
         {
             parent[v]=u;
-            DFS(v,disc,low,parent,bridge);
+            (v,disc,low,parent,bridge);
             low[u]=min(low[u],low[v]);
             if(low[v]>disc[u])
             {
