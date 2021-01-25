@@ -3,7 +3,7 @@ using namespace std;
 long long int dp[1000][1000];
 long long int ans(int arr[],int i,int j)
 {
-    if(j==i+1)
+    if(i+1==j)
     {
         return max(arr[j],arr[i]);
     }
