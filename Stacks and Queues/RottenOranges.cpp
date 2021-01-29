@@ -1,5 +1,5 @@
 using namespace std;
-#include<bits/stdc++.h>
+#include <bits/stdc++.h>
 int X[4] = {1, -1, 0, 0};
 int Y[4] = {0, 0, 1, -1};
 int valid(int i, int j, int n, int m)
@@ -83,19 +83,19 @@ int orangesRotting(vector<vector<int>> &grid)
 }
 int main()
 {
-    int n,m;
-    cin>>n>>m;
+    int n, m;
+    cin >> n >> m;
     vector<vector<int>> arr;
-    for(int i=0;i<n;i++)
+    for (int i = 0; i < n; i++)
     {
         vector<int> temp;
-        for(int j=0;j<m;j++)
+        for (int j = 0; j < m; j++)
         {
             int x;
-            cin>>x;
+            cin >> x;
             temp.push_back(x);
         }
         arr.push_back(temp);
     }
-    cout<<orangesRotting(arr)<<"\n";
+    cout << orangesRotting(arr) << "\n";
 }
