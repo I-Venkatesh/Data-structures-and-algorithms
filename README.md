@@ -1,13 +1,13 @@
-# Solved problems on several data structures and algorithm topics:
-1.Arrays
-2.Backtracking
-3.Binary Trees
-4.Bit Manipulation
-5.Dynamic Programming
-6.Graph
-7.Greedy
-8.Linked List
-9.Searching & Sorting
-10.Stacks and Queuesc
-11.String
+Solved problems on several data structures and algorithm topics:
+* Arrays
+* Backtracking
+* Binary Trees
+* Bit Manipulation
+* Dynamic Programming
+* Graph
+* Greedy
+* Linked List
+* Searching & Sorting
+* Stacks and Queuesc
+* String
 
