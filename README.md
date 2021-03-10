@@ -1,4 +1,4 @@
-Solved problems on several data structures and algorithm topics:
+## Solved problems on several data structures and algorithm topics:
 * Arrays
 * Backtracking
 * Binary Trees
