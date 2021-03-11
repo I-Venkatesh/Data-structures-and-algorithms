@@ -15,8 +15,8 @@ public:
         {
             return dp[i][j];
         }
-        int left=(piles[i]+calc(piles,i+2,j),piles[i]+calc(piles,i+1,j-1));
-        int right=(piles[j]+calc(piles,i,j-2),piles[j]+calc(piles,i+1,j-1));
+        int left=min(piles[i]+calc(piles,i+2,j),piles[i]+calc(piles,i+1,j-1));
+        int right=min(piles[j]+calc(piles,i,j-2),piles[j]+calc(piles,i+1,j-1));
         return dp[i][j]=max(left,right);
     }
     bool stoneGame(vector<int>& piles) {
