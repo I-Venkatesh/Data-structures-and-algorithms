@@ -1,43 +1,31 @@
-using namespace std;
-#include <bits/stdc++.h>
-int main()
-{
-    int n;
-    cin >> n;
-    int nums[n];
-    for (int i = 0; i < n; i++)
-    {
-        cin >> nums[i];
-    }
-    int x = 0;
-    for (int i = 0; i < n; i++)
-    {
-        x = x ^ nums[i];
-    }
-    int a = 0, b = 0;
-    int ith = 0;
-    int temp = x;
-    int c = 0;
-    while (temp)
-    {
-        if (temp & 1)
+class Solution {
+public:
+    vector<int> singleNumber(vector<int>& nums) {
+        if(nums.size()==2)
         {
-            ith = c;
-            break;
+            return nums;
         }
-        temp = temp >> 1;
-        c++;
-    }
-    for (int i = 0; i < n; i++)
-    {
-        if ((nums[i] >> ith) & 1)
+        long long int x=0;
+        for(auto i:nums)
         {
-            a = a ^ nums[i];
+            x=x^i;
         }
-        else
+        int c=x&(~(x-1));
+        int a=0,b=0;
+        for(int i=0;i<nums.size();i++)
         {
-            b = b ^ nums[i];
+            if(nums[i]&c)
+            {
+                a=a^nums[i];
+            }
+            else
+            {
+                b=b^nums[i];
+            }
         }
+        vector<int> ans;
+        ans.push_back(a);
+        ans.push_back(b);
+        return ans;
     }
-    cout<<a<<" "<<b<<"\n";
-}
+};
