@@ -1,8 +1,7 @@
 using namespace std;
 #include<bits/stdc++.h>
 int num,k;
-int dp[10000];
-int arr[1000005];
+int dp[1008];
 int calc(int curr,int kCurr)
 {
     if(curr>=num||kCurr>=k)
