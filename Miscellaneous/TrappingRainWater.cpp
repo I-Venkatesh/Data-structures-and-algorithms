@@ -32,4 +32,24 @@ public:
         }
         return ans;
     }
+     int trap(vector<int>& height) {
+        int lv=0,rv=height.size()-1;
+        int maxl=0,maxr=0,ans=0;
+        while(lv<rv)
+        {
+            maxl=max(maxl,height[lv]);
+            maxr=max(maxr,height[rv]);
+            if(maxl>maxr)
+            {
+                ans+=max(0,maxr-height[rv]);
+                rv--;
+            }
+            else
+            {
+                ans+=max(0,maxl-height[lv]);
+                lv++;
+            }   
+        }
+        return ans;
+    }
 };
