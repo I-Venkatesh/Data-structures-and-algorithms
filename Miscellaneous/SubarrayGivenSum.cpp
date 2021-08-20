@@ -3,7 +3,6 @@ vector<int> subarraySum(int arr[], int n, int s)
     int i = 0, j = 0;
     int sum = 0;
     vector<int> ans;
-
     while (j < n && i <= j)
     {
         if (sum == s)
