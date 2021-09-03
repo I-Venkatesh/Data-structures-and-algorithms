@@ -9,7 +9,7 @@ int main()
     {
         cin>>arr[i];
     }
-    map<int,int> mp;
+    map<int,pair<int,int>> mp;
     for(int i=0;i<num;i++)
     {
         mp[arr[i]]++;
